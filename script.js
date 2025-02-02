@@ -1,30 +1,19 @@
-document.addEventListener('DOMContentLoaded', function () {
-     const popup = document.getElementById('popup');
-     const whatsappNumberInput = document.getElementById('whatsapp-number');
-     const messageInput = document.getElementById('message');
-     const generateLinkButton = document.getElementById('generate-link');
-     const whatsappLink = document.getElementById('whatsapp-link');
-     const copyLinkButton = document.getElementById('copy-link');
-     const linkOutput = document.getElementById('link-output');
+document.getElementById('generate-link').addEventListener('click', function () {
+         const number = document.getElementById('whatsapp-number').value.trim();
+         const message = document.getElementById('message').value.trim();
 
-     // Hide popup after 2 seconds
-     setTimeout(() => {
-       popup.style.display = 'none';
-     }, 2000);
-
-     // Generate WhatsApp link
-     generateLinkButton.addEventListener('click', function () {
-       const number = whatsappNumberInput.value.replace(/[^0-9]/g, '');
-       const message = encodeURIComponent(messageInput.value);
-       const link = `https://wa.me/${number}?text=${message}`;
-       whatsappLink.href = link;
-       whatsappLink.textContent = link;
-       linkOutput.style.display = 'block';
+         if (number && message) {
+             const encodedMessage = encodeURIComponent(message);
+             const whatsappLink = `https://wa.me/${number}?text=${encodedMessage}`;
+             document.getElementById('generated-link').value = whatsappLink;
+         } else {
+             alert('Please enter a valid number and message.');
+         }
      });
 
-     // Copy link to clipboard
-     copyLinkButton.addEventListener('click', function () {
-       navigator.clipboard.writeText(whatsappLink.href);
-       alert('Link copied to clipboard!');
+     document.getElementById('copy-link').addEventListener('click', function () {
+         const linkInput = document.getElementById('generated-link');
+         linkInput.select();
+         document.execCommand('copy');
+         alert('Link copied to clipboard!');
      });
-   });
