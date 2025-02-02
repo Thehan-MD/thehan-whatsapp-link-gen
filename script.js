@@ -1,39 +1,30 @@
-document.getElementById('generate-link').addEventListener('click', function () {
-    // Get the WhatsApp number and message
-    const number = document.getElementById('whatsapp-number').value.trim();
-    const message = document.getElementById('message').value.trim();
+document.addEventListener('DOMContentLoaded', function () {
+     const popup = document.getElementById('popup');
+     const whatsappNumberInput = document.getElementById('whatsapp-number');
+     const messageInput = document.getElementById('message');
+     const generateLinkButton = document.getElementById('generate-link');
+     const whatsappLink = document.getElementById('whatsapp-link');
+     const copyLinkButton = document.getElementById('copy-link');
+     const linkOutput = document.getElementById('link-output');
 
-    // Validate the number (must include country code and be numeric)
-    if (!number || isNaN(number) || number.length < 10) {
-        alert('Please enter a valid WhatsApp number with country code (e.g., 1234567890).');
-        return;
-    }
+     // Hide popup after 2 seconds
+     setTimeout(() => {
+       popup.style.display = 'none';
+     }, 2000);
 
-    // Validate the message
-    if (!message) {
-        alert('Please enter a message.');
-        return;
-    }
+     // Generate WhatsApp link
+     generateLinkButton.addEventListener('click', function () {
+       const number = whatsappNumberInput.value.replace(/[^0-9]/g, '');
+       const message = encodeURIComponent(messageInput.value);
+       const link = `https://wa.me/${number}?text=${message}`;
+       whatsappLink.href = link;
+       whatsappLink.textContent = link;
+       linkOutput.style.display = 'block';
+     });
 
-    // Generate the WhatsApp link
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappLink = `https://wa.me/${number}?text=${encodedMessage}`;
-
-    // Display the generated link
-    document.getElementById('generated-link').value = whatsappLink;
-});
-
-document.getElementById('copy-link').addEventListener('click', function () {
-    const linkInput = document.getElementById('generated-link');
-
-    // Check if the link is empty
-    if (!linkInput.value) {
-        alert('No link generated yet!');
-        return;
-    }
-
-    // Copy the link to the clipboard
-    linkInput.select();
-    document.execCommand('copy');
-    alert('Link copied to clipboard!');
-});
+     // Copy link to clipboard
+     copyLinkButton.addEventListener('click', function () {
+       navigator.clipboard.writeText(whatsappLink.href);
+       alert('Link copied to clipboard!');
+     });
+   });
