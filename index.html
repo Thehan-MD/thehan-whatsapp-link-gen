@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ᴛʜᴇʜᴀɴ ᴡᴀ ʟɪɴᴋ ɢᴇɴ</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <video autoplay muted loop id="background-video">
-            <source src="https://files.catbox.moe/ro4i4p.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="content">
-            <h1>ᴛʜᴇʜᴀɴ ᴡᴀ ʟɪɴᴋ ɢᴇɴ</h1>
-            <div class="input-group">
-                <input type="text" id="whatsapp-number" placeholder="Enter WhatsApp Number (with country code)">
-            </div>
-            <div class="input-group">
-                <input type="text" id="message" placeholder="Enter Message">
-            </div>
-            <button id="generate-link">Generate Link</button>
-            <div class="output">
-                <input type="text" id="generated-link" readonly>
-                <button id="copy-link">Copy Link</button>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+   <html lang="en">
+   <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>ᴛʜᴇʜᴀɴ ᴡᴀ ʟɪɴᴋ ɢᴇɴ</title>
+     <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+     <video autoplay loop muted id="bg-video">
+       <source src="https://files.catbox.moe/ro4i4p.mp4" type="video/mp4">
+       Your browser does not support the video tag.
+     </video>
+     <div id="popup">
+       <img src="https://files.catbox.moe/w5w2og.jpg" alt="Popup Image">
+     </div>
+     <div id="main-interface">
+       <input type="text" id="whatsapp-number" placeholder="WhatsApp Number">
+       <input type="text" id="message" placeholder="Message">
+       <button id="generate-link">Generate Link</button>
+       <div id="link-output">
+         <a id="whatsapp-link" target="_blank">Open WhatsApp</a>
+         <button id="copy-link">Copy Link</button>
+       </div>
+     </div>
+     <script src="script.js"></script>
+   </body>
+   </html>
