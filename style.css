@@ -1,62 +1,69 @@
-body {
-     margin: 0;
-     padding: 0;
-     overflow: hidden;
-     font-family: Arial, sans-serif;
-   }
+/* General input container styling */
+.input-container {
+  margin: 15px auto;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+}
 
-   #bg-video {
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     z-index: -1;
-   }
+/* Input field styling */
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+  color: #333;
+}
 
-   #popup {
-     position: fixed;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     opacity: 0;
-     animation: fadeIn 2s forwards;
-   }
+/* Focus effect (when the user clicks on the input) */
+input[type="text"]:focus {
+  border-color: #25D366; /* WhatsApp green color */
+  box-shadow: 0 0 8px rgba(37, 211, 102, 0.3);
+}
 
-   @keyframes fadeIn {
-     from { opacity: 0; }
-     to { opacity: 1; }
-   }
+/* Placeholder styling */
+input[type="text"]::placeholder {
+  color: #999;
+  font-style: italic;
+}
 
-   #main-interface {
-     position: fixed;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     text-align: center;
-     color: white;
-   }
+/* Button styling */
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background-color: #25D366; /* WhatsApp green color */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-   input {
-     display: block;
-     margin: 10px auto;
-     padding: 10px;
-     width: 80%;
-     max-width: 300px;
-   }
+button:hover {
+  background-color: #128C7E; /* Darker WhatsApp green */
+}
 
-   button {
-     padding: 10px 20px;
-     margin: 10px;
-     cursor: pointer;
-   }
+/* Link output styling */
+#link-output {
+  margin-top: 20px;
+  text-align: center;
+}
 
-   #link-output {
-     margin-top: 20px;
-   }
+#whatsapp-link {
+  color: #25D366;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-   #whatsapp-link {
-     color: white;
-     text-decoration: none;
+#copy-link {
+  margin-left: 10px;
+  background-color: #34B7F1; /* WhatsApp blue color */
+}
+
+#copy-link:hover {
+  background-color: #128C7E; /* Darker WhatsApp green */
 }
